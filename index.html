@@ -5,114 +5,151 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Moe Moe Maid Cafe Menu</title>
 <link rel="icon" type="image/png" href="img/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body { font-family: system-ui, sans-serif; background: #fff0f6; color: #333; max-width: 1000px; margin: 0 auto; padding: 1rem; }
-  h1 { color: #d6336c; text-align: center; margin-bottom: 0.25rem; }
-  .info { text-align: center; font-size: 0.9rem; }
-  .tagline { text-align: center; font-size: 2rem; font-weight: 800; margin: 0.5rem 0; }
-  .banner { background: #d6336c; color: #fff; text-align: center; font-weight: 800; font-size: 2.25rem; padding: 1.75rem 2rem; border-radius: 12px; margin: 1rem 0; }
-  .vip { background: #fff; border: 3px solid #d6336c; border-radius: 12px; padding: 0 1rem 1rem; margin-bottom: 2rem; }
-  .vip h2 { text-align: center; }
-  .columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .column { background: #fff; border-radius: 12px; padding: 0 1rem 1rem; }
-  .kang { border: 3px solid #f59f00; }
-  .column > h2 { text-align: center; }
-  h2 { color: #d6336c; }
-  .kang h2 { color: #e67700; }
-  h3 { color: #d6336c; border-bottom: 2px dashed #f783ac; padding-bottom: 0.25rem; margin-top: 1.5rem; }
-  ul { list-style: none; padding: 0; }
-  li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.4rem 0; border-bottom: 1px solid #fcc2d7; }
-  small { display: block; color: #868e96; font-weight: normal; }
-  .hero { display: flex; justify-content: center; align-items: center; gap: 1rem; }
-  .hero > * { flex: 0 1 135px; min-width: 0; }
-  .hero > .logo { flex-basis: 180px; }
-  .hero img { display: block; width: 100%; height: auto; }
-  .promo { display: flex; align-items: flex-start; justify-content: center; gap: 1rem; padding-top: 1rem; }
-  .promo img { width: 260px; max-width: 100%; border-radius: 8px; box-sizing: border-box; }
-  .promo img.qr-pad { padding: 4.5%; background: #edf2f7; }
-  .promo figure { margin: 0; text-align: center; font-weight: bold; color: #e67700; flex: 1; min-width: 0; }
-  li img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; flex: none; }
-  li img.card-thumb { width: auto; height: 110px; max-width: 70px; object-fit: contain; }
-  li .name { flex: 1; }
-  li { align-items: center; }
-  .price { white-space: nowrap; font-weight: bold; }
+  :root { --pink: #c2185b; --pink-soft: #fce4ec; --orange: #e0701a; --orange-rule: #f3c28f; --ink: #2a2a2a; --muted: #6b6b6b; --rule: #f2b8cc; --row: #f4e1e8; }
+  * { box-sizing: border-box; }
+  body { font-family: "Poppins", "Segoe UI", Arial, sans-serif; background: #fff0f6; color: var(--ink); line-height: 1.35; max-width: 1100px; margin: 0 auto; padding: 1rem; }
+  #fs-btn { font: inherit; font-size: 0.8rem; color: var(--muted); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 0.25rem 0.75rem; cursor: pointer; }
+  :fullscreen #fs-btn { display: none; }
+
+  .brand { text-align: center; }
+  .brand img { width: 110px; height: auto; }
+  .brand h1 { color: var(--pink); font-size: 2rem; line-height: 1.1; margin: 0.25rem 0 0; }
+  .loc { color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; margin-top: 0.25rem; }
+  .tag { color: var(--pink); font-weight: 500; font-size: 1.25rem; }
+  .incl { background: var(--pink-soft); border-radius: 12px; padding: 0.75rem 1rem; text-align: center; font-weight: 700; font-size: 1.1rem; margin: 1rem 0; }
+
+  .columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 1.5rem; align-items: start; }
+  .panel { background: #fff; border-radius: 16px; padding: 1.25rem; }
+
+  .qrs { display: flex; justify-content: space-around; gap: 1rem; text-align: center; }
+  .qrs figure { margin: 0; flex: 1; min-width: 0; }
+  .qrs img { width: 100%; max-width: 200px; display: block; margin: 0 auto; border-radius: 8px; }
+  .qrs img.qr-pad { padding: 4.5%; background: #edf2f7; }
+  .qrs figcaption { font-weight: 700; margin-top: 0.4rem; color: var(--pink); }
+  .qrs .b figcaption { color: var(--orange); }
+  .qrs small { display: block; font-weight: 400; font-size: 0.8rem; color: var(--muted); }
+
+  .tmm { margin-top: 1.25rem; border: 2px solid var(--orange); border-radius: 12px; padding: 1rem; }
+  .tmm h2 { color: var(--orange); font-size: 1.4rem; line-height: 1.15; margin: 0; }
+  .note { color: var(--muted); font-size: 0.85rem; }
+  .hero { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem; }
+  .hero img { width: 110px; height: 80px; object-fit: cover; border-radius: 8px; flex: none; }
+  .hero .d b { font-size: 1.15rem; }
+  .tmm .price { color: var(--orange); font-size: 1.5rem; }
+  .tmm h3 { color: var(--orange); border-color: var(--orange-rule); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem; }
+  .pair .it { display: flex; align-items: center; gap: 0.5rem; }
+  .pair img { width: 48px; height: 48px; object-fit: contain; flex: none; }
+  .pair img.card-thumb { height: 72px; }
+
+  .mini { text-align: center; }
+  .mini .n { color: var(--pink); font-weight: 700; }
+  .mini h2 { font-size: 2.25rem; line-height: 1.05; margin: 0; }
+
+  h3 { color: var(--pink); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 1.1rem 0 0; padding-bottom: 0.25rem; border-bottom: 1px dashed var(--rule); }
+  .row { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--row); }
+  .row:last-of-type { border-bottom: none; }
+  .row img { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; flex: none; }
+  .num { width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--pink); color: #fff; font-weight: 700; font-size: 0.85rem; display: grid; place-items: center; flex: none; }
+  .d { flex: 1; min-width: 0; }
+  .d b { display: block; line-height: 1.2; }
+  .d span, .it i, .dk i { display: block; font-style: normal; font-size: 0.8rem; color: var(--muted); }
+  .it b, .dk b { font-weight: 500; display: block; line-height: 1.2; }
+  .price { font-weight: 700; font-size: 1.1rem; white-space: nowrap; }
+  .d .veg, .veg { display: inline-block; font-size: 0.7rem; font-weight: 500; color: #2e7d32; border: 1px solid #81c784; border-radius: 4px; padding: 0 0.3rem; margin-left: 0.35rem; vertical-align: 2px; }
+  .d .veg.warn { color: #8a5a00; border-color: #e6c27a; }
+
+  .drinks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 0.6rem; text-align: center; }
+  .drinks img { width: 72px; height: 72px; object-fit: cover; border-radius: 8px; }
+  .card { display: flex; align-items: center; gap: 0.75rem; margin-top: 1.25rem; }
+  .card img { width: 48px; height: 75px; object-fit: cover; border-radius: 4px; flex: none; }
+  @media (max-width: 480px) {
+    .pair { grid-template-columns: 1fr; }
+    .hero img { width: 80px; height: 60px; }
+    .panel { padding: 1rem; }
+  }
+  .card span { display: block; font-size: 0.8rem; color: var(--muted); }
 </style>
 </head>
 <body>
   <button id="fs-btn">Go Full Screen</button>
-  <h1>♡ Moe Moe Maid Cafe ♡</h1>
-  <div class="hero">
-    <!-- <a href="https://instagram.com/moemoecafekyun"><img src="img/moemoecafekyun_qr.png" alt="QR code for @moemoecafekyun on Instagram"></a> -->
-    <img class="logo" src="img/logo.png" alt="Moe Moe Cafe – Maid Cafe logo">
-    <!-- <a href="https://instagram.com/dynetap"><img src="img/dynetap_qr.png" alt="QR code for @dynetap on Instagram"></a> -->
-  </div>
-  <p class="info">Comic Con Hall 5 Mezzanine</p>
-  <h2 class="tagline">Experience Japanese Maid Cafe</h2>
-  <div class="banner">Food cost includes one complimentary drink, entertainment and entry for 50 minutes.</div>
+
+  <header class="brand">
+    <img src="img/logo.png" alt="Moe Moe Cafe – Maid Cafe logo">
+    <h1>♡ Moe Moe Maid Cafe ♡</h1>
+    <div class="loc">Comic Con · Hall 5 Mezzanine</div>
+    <div class="tag">Experience a Japanese Maid Cafe</div>
+  </header>
+  <div class="incl">Food cost includes one complimentary drink, entertainment and entry for 50 minutes.</div>
 
   <div class="columns">
-    <section class="column kang">
-      <div class="promo">
+    <section class="panel">
+      <div class="qrs">
         <figure>
           <img src="img/book-online-qr.png" alt="QR code to order and book online">
           <figcaption>Scan to book online</figcaption>
         </figure>
-        <figure>
+        <figure class="b">
           <img class="qr-pad" src="img/tmm-instagram-qr.jpeg" alt="QR code for Tech My Money on Instagram">
-          <figcaption>Follow Tech My Money on Instagram<br>&amp; show us to order Roru Keki</figcaption>
+          <figcaption>Follow Tech My Money<small>on Instagram &amp; show us to order Roru Keki</small></figcaption>
         </figure>
       </div>
-      <h2>TMM Roru Keki Entry Set<small>Offline only · Follow TMM on Instagram &amp; show staff to order</small></h2>
 
-      <h3>TMM Roru Keki Entry Set</h3>
-      <ul>
-        <li><img src="img/beef-noodle-soup.jpg" alt="" loading="lazy"><span class="name">TMM Roru Keki</span><span class="price">R 200.00</span></li>
-      </ul>
+      <div class="tmm">
+        <h2>TMM Roru Keki Entry Set</h2>
+        <div class="note">Offline only · Follow TMM on Instagram &amp; show staff to order</div>
+        <div class="hero">
+          <img src="img/beef-noodle-soup.jpg" alt="">
+          <div class="d"><b>TMM Roru Keki<span class="veg">Vegetarian</span></b><span>Roll cake with a complimentary drink &amp; cards</span></div>
+          <div class="price">R200</div>
+        </div>
 
-      <h3>TMM Roru Keki Set Complimentary Drink</h3>
-      <ul>
-        <li><img src="img/fizzy-asian-pear.png" alt="" loading="lazy"><span class="name">Fizzy Asian Pear<small>Vegan friendly</small></span></li>
-        <li><img src="img/fizzy-tropical-fruit-punch.png" alt="" loading="lazy"><span class="name">Fizzy Tropical Fruit Punch<small>Vegan friendly</small></span></li>
-      </ul>
+        <h3>Choose your complimentary drink</h3>
+        <div class="pair">
+          <div class="it"><img src="img/fizzy-asian-pear.png" alt="" loading="lazy"><div><b>Fizzy Asian Pear</b><i>Vegan friendly</i></div></div>
+          <div class="it"><img src="img/fizzy-tropical-fruit-punch.png" alt="" loading="lazy"><div><b>Fizzy Tropical Fruit Punch</b><i>Vegan friendly</i></div></div>
+        </div>
 
-      <h3>TMM Roru Keki Set Complimentary Cards</h3>
-      <ul>
-        <li><img class="card-thumb" src="img/card.jpg" alt="Sanrio Card Pack" loading="lazy"><span class="name">Sanrio Characters Card Pack</span></li>
-        <li><img class="card-thumb" src="img/card-member-front.jpg" alt="Member card" loading="lazy"><span class="name">Member Card<small>Your Key to Our Maid Cafe! Please guard it well for a special treat next year! </small></span></li>
-      </ul>
+        <h3>Complimentary cards</h3>
+        <div class="pair">
+          <div class="it"><img class="card-thumb" src="img/card.jpg" alt="Sanrio card pack" loading="lazy"><div><b>Sanrio Characters Card Pack</b></div></div>
+          <div class="it"><img class="card-thumb" src="img/card-member-front.jpg" alt="Member card" loading="lazy"><div><b>Member Card</b><i>Your key to our Maid Cafe! Guard it well for a special treat next year.</i></div></div>
+        </div>
+      </div>
     </section>
 
-    <section class="column">
-      <h2>Cafe Menu<small>Checki Photos</small></h2>
-      <ul>
-        <li><span>Polaroid w/ maid, No Entry Into Cafe<small>Per maid, per photo (max 2 people). The maid avaible will be chosen at random.</small></span><span class="price">R 50.00</span></li>
-      </ul>
+    <section class="panel">
+      <div class="mini">
+        <div class="n">♡ Moe Moe Maid Cafe ♡</div>
+        <h2>Cafe Menu</h2>
+      </div>
 
-      <h3>Classic Maid Cafe Set Meals</h3>
-      <ul>
-        <li><img src="img/set-1.png" alt="" loading="lazy"><span class="name">1 Heart Full Omurice Combo (Vegetarian)<small>Includes omurice, cake &amp; drink</small></span><span class="price">R 450.00</span></li>
-        <li><img src="img/set-2.png" alt="" loading="lazy"><span class="name">2 Magic Pink Curry Banquet (Vegetarian)<small>Includes curry, cake &amp; drink</small></span><span class="price">R 450.00</span></li>
-        <li><img src="img/set-3.png" alt="" loading="lazy"><span class="name">3 Omurice with complimentary drink of choice</span><span class="price">R 380.00</span></li>
-        <li><img src="img/set-4.png" alt="" loading="lazy"><span class="name">4 Maid's Magic Pink Curry (Vegetarian)</span><span class="price">R 380.00</span></li>
-        <li><img src="img/set-6.png" alt="" loading="lazy"><span class="name">6 Maids Vegan Pink Curry</span><span class="price">R 380.00</span></li>
-      </ul>
+      <h3>Cheki Photos</h3>
+      <div class="row">
+        <div class="d"><b>Polaroid with a Maid<span class="veg warn">No cafe entry</span></b><span>Per maid, per photo (max 2 people). The available maid will be chosen at random.</span></div>
+        <div class="price">R50</div>
+      </div>
 
       <h3>Classic Maid Cafe Dessert</h3>
-      <ul>
-        <li><img src="img/set-5.png" alt="" loading="lazy"><span class="name">5 Spongy Monster Sweet Treat (Vegetarian)</span><span class="price">R 300.00</span></li>
-      </ul>
+      <div class="row"><div class="num">5</div><img src="img/set-5.png" alt="" loading="lazy"><div class="d"><b>Spongy Monster Sweet Treat<span class="veg">Vegetarian</span></b></div><div class="price">R300</div></div>
 
-      <h3>Classic Maid Cafe Complimentary Drink</h3>
-      <ul>
-        <li><img src="img/blue-lemonade.png" alt="" loading="lazy"><span class="name">Blue Lemonade<small>Vegan friendly</small></span></li>
-        <li><img src="img/peach-ice-tea.png" alt="" loading="lazy"><span class="name">Peach Ice Tea<small>Vegan friendly</small></span></li>
-        <li><img src="img/watermelonade.png" alt="" loading="lazy"><span class="name">Watermelonade<small>Vegan friendly</small></span></li>
-      </ul>
+      <h3>Classic Maid Cafe Set Meals</h3>
+      <div class="row"><div class="num">1</div><img src="img/set-1.png" alt="" loading="lazy"><div class="d"><b>Heart Full Omurice Combo<span class="veg">Vegetarian</span></b><span>Includes omurice, cake &amp; drink</span></div><div class="price">R450</div></div>
+      <div class="row"><div class="num">2</div><img src="img/set-2.png" alt="" loading="lazy"><div class="d"><b>Magic Pink Curry Banquet<span class="veg">Vegetarian</span></b><span>Includes curry, cake &amp; drink</span></div><div class="price">R450</div></div>
+      <div class="row"><div class="num">3</div><img src="img/set-3.png" alt="" loading="lazy"><div class="d"><b>Omurice<span class="veg">Vegetarian</span></b><span>With complimentary drink of choice</span></div><div class="price">R380</div></div>
+      <div class="row"><div class="num">4</div><img src="img/set-4.png" alt="" loading="lazy"><div class="d"><b>Maid's Magic Pink Curry<span class="veg">Vegetarian</span></b></div><div class="price">R380</div></div>
+      <div class="row"><div class="num">6</div><img src="img/set-6.png" alt="" loading="lazy"><div class="d"><b>Maids Vegan Pink Curry<span class="veg">Vegan</span></b></div><div class="price">R380</div></div>
 
-      <h3>Classic Maid Cafe Complimentary Card</h3>
-      <ul>
-        <li><img class="card-thumb" src="img/card-member-front.jpg" alt="Member card" loading="lazy"><span class="name">Member Card<small>VIP guests receive the VIP card instead</small></span></li>
-      </ul>
+      <h3>Complimentary Drinks · choose one</h3>
+      <div class="drinks">
+        <div class="dk"><img src="img/blue-lemonade.png" alt="" loading="lazy"><b>Blue Lemonade</b><i>Vegan friendly</i></div>
+        <div class="dk"><img src="img/peach-ice-tea.png" alt="" loading="lazy"><b>Peach Ice Tea</b><i>Vegan friendly</i></div>
+        <div class="dk"><img src="img/watermelonade.png" alt="" loading="lazy"><b>Watermelonade</b><i>Vegan friendly</i></div>
+      </div>
+
+      <div class="card"><img src="img/card-member-front.jpg" alt="Member card" loading="lazy"><div><b>Complimentary Member Card</b><span>Included with every Classic Maid Cafe set. VIP guests receive the VIP card instead.</span></div></div>
     </section>
   </div>
 <script>

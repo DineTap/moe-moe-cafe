@@ -14,7 +14,7 @@
   .vip { background: #fff; border: 3px solid #d6336c; border-radius: 12px; padding: 0 1rem 1rem; margin-bottom: 2rem; }
   .vip h2 { text-align: center; }
   .vip .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; text-align: center; font-weight: bold; color: #d6336c; }
-  .vip .cards img { width: 100%; border-radius: 8px; display: block; margin-bottom: 0.25rem; }
+  .vip .cards img { width: 100%; max-width: 230px; border-radius: 8px; display: block; margin: 0 auto 0.25rem; }
   .columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
   .column { background: #fff; border-radius: 12px; padding: 0 1rem 1rem; }
   .kang { border: 3px solid #f59f00; }
@@ -33,6 +33,7 @@
   .promo img { width: 260px; max-width: 100%; border-radius: 8px; }
   .promo figure { margin: 0; text-align: center; font-weight: bold; color: #e67700; }
   li img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; flex: none; }
+  li img.card-thumb { width: auto; height: 110px; max-width: 70px; object-fit: contain; }
   li .name { flex: 1; }
   li { align-items: center; }
   .price { white-space: nowrap; font-weight: bold; }
@@ -57,7 +58,6 @@
     </ul>
     <div class="cards">
       <figure style="margin:0"><img src="img/card-vip.jpg" alt="VIP member card" loading="lazy">VIP card</figure>
-      <figure style="margin:0"><img src="img/card-member.jpg" alt="Member card" loading="lazy">Member card</figure>
     </div>
   </section>
 
@@ -85,7 +85,8 @@
 
       <h3>Master Kang Set Complimentary Card</h3>
       <ul>
-        <li><img src="img/card.jpg" alt="Sanrio Card Pack" loading="lazy"><span class="name">Sanrio Characters Card</span><span class="price">R 0.00</span></li>
+        <li><img class="card-thumb" src="img/card.jpg" alt="Sanrio Card Pack" loading="lazy"><span class="name">Sanrio Characters Card</span><span class="price">R 0.00</span></li>
+        <li><img class="card-thumb" src="img/card-member-front.jpg" alt="Member card" loading="lazy"><span class="name">Member Card<small>VIP guests receive the VIP card instead</small></span><span class="price">R 0.00</span></li>
       </ul>
     </section>
 
@@ -110,6 +111,11 @@
         <li><img src="img/blue-lemonade.png" alt="" loading="lazy"><span class="name">Blue Lemonade<small>Vegan friendly</small></span><span class="price">R 0.00</span></li>
         <li><img src="img/peach-ice-tea.png" alt="" loading="lazy"><span class="name">Peach Ice Tea<small>Vegan friendly</small></span><span class="price">R 0.00</span></li>
         <li><img src="img/watermelonade.png" alt="" loading="lazy"><span class="name">Watermelonade<small>Vegan friendly</small></span><span class="price">R 0.00</span></li>
+      </ul>
+
+      <h3>Classic Maid Cafe Complimentary Card</h3>
+      <ul>
+        <li><img class="card-thumb" src="img/card-member-front.jpg" alt="Member card" loading="lazy"><span class="name">Member Card<small>VIP guests receive the VIP card instead</small></span><span class="price">R 0.00</span></li>
       </ul>
     </section>
   </div>

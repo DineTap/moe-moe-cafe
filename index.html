@@ -11,6 +11,10 @@
   .info { text-align: center; font-size: 0.9rem; }
   .tagline { text-align: center; font-size: 2rem; font-weight: 800; margin: 0.5rem 0; }
   .banner { background: #d6336c; color: #fff; text-align: center; font-weight: 800; font-size: 2.25rem; padding: 1.75rem 2rem; border-radius: 12px; margin: 1rem 0; }
+  .vip { background: #fff; border: 3px solid #d6336c; border-radius: 12px; padding: 0 1rem 1rem; margin-bottom: 2rem; }
+  .vip h2 { text-align: center; }
+  .vip .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; text-align: center; font-weight: bold; color: #d6336c; }
+  .vip .cards img { width: 100%; border-radius: 8px; display: block; margin-bottom: 0.25rem; }
   .columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
   .column { background: #fff; border-radius: 12px; padding: 0 1rem 1rem; }
   .kang { border: 3px solid #f59f00; }
@@ -46,6 +50,17 @@
   <h2 class="tagline">Experience Japanese Maid Cafe</h2>
   <div class="banner">Food cost includes one complimentary drink, entertainment and entry for 50 minutes.</div>
 
+  <section class="vip">
+    <h2>VIP Upgrade</h2>
+    <ul>
+      <li><span class="name">VIP Surcharge<small>Best seats with a view of the main stage + a free cheki. Free with a Capitec Superfan pass (no free cheki).</small></span><span class="price">R 150.00</span></li>
+    </ul>
+    <div class="cards">
+      <figure style="margin:0"><img src="img/card-vip.jpg" alt="VIP member card" loading="lazy">VIP card</figure>
+      <figure style="margin:0"><img src="img/card-member.jpg" alt="Member card" loading="lazy">Member card</figure>
+    </div>
+  </section>
+
   <div class="columns">
     <section class="column kang">
       <div class="promo">
@@ -66,6 +81,11 @@
       <ul>
         <li><img src="img/fizzy-asian-pear.png" alt="" loading="lazy"><span class="name">Fizzy Asian Pear</span><span class="price">R 0.00</span></li>
         <li><img src="img/fizzy-tropical-fruit-punch.png" alt="" loading="lazy"><span class="name">Fizzy Tropical Fruit Punch</span><span class="price">R 0.00</span></li>
+      </ul>
+
+      <h3>Master Kang Set Complimentary Card</h3>
+      <ul>
+        <li><img src="img/card.jpg" alt="Sanrio Card Pack" loading="lazy"><span class="name">Sanrio Characters Card</span><span class="price">R 0.00</span></li>
       </ul>
     </section>
 

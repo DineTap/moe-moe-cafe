@@ -20,7 +20,10 @@
   ul { list-style: none; padding: 0; }
   li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.4rem 0; border-bottom: 1px solid #fcc2d7; }
   small { display: block; color: #868e96; font-weight: normal; }
-  .logo { display: block; width: 180px; max-width: 100%; margin: 0 auto; }
+  .hero { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .hero > * { flex: 0 1 135px; min-width: 0; }
+  .hero > .logo { flex-basis: 180px; }
+  .hero img { display: block; width: 100%; height: auto; }
   .promo { display: flex; align-items: center; justify-content: center; gap: 1rem; padding-top: 1rem; }
   .promo img { width: 260px; max-width: 100%; border-radius: 8px; }
   .promo figure { margin: 0; text-align: center; font-weight: bold; color: #e67700; }
@@ -32,8 +35,12 @@
 </head>
 <body>
   <h1>♡ Moe Moe Maid Cafe ♡</h1>
-  <img class="logo" src="img/logo.png" alt="Moe Moe Cafe – Maid Cafe logo">
-  <p class="info">Comic Con Hall 5 Mezzanine · <a href="https://instagram.com/moemoecafekyun">@moemoecafekyun</a></p>
+  <div class="hero">
+    <a href="https://instagram.com/moemoecafekyun"><img src="img/moemoecafekyun_qr.png" alt="QR code for @moemoecafekyun on Instagram"></a>
+    <img class="logo" src="img/logo.png" alt="Moe Moe Cafe – Maid Cafe logo">
+    <a href="https://instagram.com/dynetap"><img src="img/dynetap_qr.png" alt="QR code for @dynetap on Instagram"></a>
+  </div>
+  <p class="info">Comic Con Hall 5 Mezzanine</p>
   <p class="note">Admission is by reservation only and is for 50 minutes. Please note placing a food order is required to secure your entry, entertainment and drink.</p>
 
   <div class="columns">

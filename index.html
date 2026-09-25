@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moe Moe Maid Cafe Menu</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #fff0f6; color: #333; max-width: 1000px; margin: 0 auto; padding: 1rem; }
+  h1 { color: #d6336c; text-align: center; margin-bottom: 0.25rem; }
+  .info { text-align: center; font-size: 0.9rem; }
+  .note { background: #fff; border-left: 4px solid #d6336c; padding: 0.5rem 0.75rem; }
+  .columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .column { background: #fff; border-radius: 12px; padding: 0 1rem 1rem; }
+  .kang { border: 3px solid #f59f00; }
+  .column > h2 { text-align: center; }
+  h2 { color: #d6336c; }
+  .kang h2 { color: #e67700; }
+  h3 { color: #d6336c; border-bottom: 2px dashed #f783ac; padding-bottom: 0.25rem; margin-top: 1.5rem; }
+  ul { list-style: none; padding: 0; }
+  li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.4rem 0; border-bottom: 1px solid #fcc2d7; }
+  small { display: block; color: #868e96; font-weight: normal; }
+  .promo { display: flex; align-items: center; justify-content: center; gap: 1rem; padding-top: 1rem; }
+  .promo img { width: 150px; max-width: 100%; border-radius: 8px; }
+  .promo figure { margin: 0; text-align: center; font-weight: bold; color: #e67700; }
+  li img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; flex: none; }
+  li .name { flex: 1; }
+  li { align-items: center; }
+  .price { white-space: nowrap; font-weight: bold; }
+</style>
+</head>
+<body>
+  <h1>♡ Moe Moe Maid Cafe ♡</h1>
+  <p class="info">Comic Con Hall 5 Mezzanine · <a href="https://instagram.com/moemoecafekyun">@moemoecafekyun</a></p>
+  <p class="note">Admission is by reservation only and is for 50 minutes. Please note placing a food order is required to secure your entry, entertainment and drink.</p>
+
+  <div class="columns">
+    <section class="column kang">
+      <div class="promo">
+        <img src="img/logo.png" alt="Moe Moe Cafe – Maid Cafe logo">
+        <figure>
+          <img src="img/book-online-qr.png" alt="QR code to order and book online">
+          <figcaption>Scan to book online</figcaption>
+        </figure>
+      </div>
+      <h2>Master Kang Special Set<small>Walk in only</small></h2>
+
+      <h3>Noodle Entry Set</h3>
+      <ul>
+        <li><img src="img/beef-noodle-soup.png" alt="" loading="lazy"><span class="name">Beef Noodle Soup</span><span class="price">R 200.00</span></li>
+        <li><img src="img/seafood-noodle-soup.png" alt="" loading="lazy"><span class="name">Seafood Noodle Soup</span><span class="price">R 200.00</span></li>
+      </ul>
+
+      <h3>Complimentary Drink</h3>
+      <ul>
+        <li><img src="img/fizzy-asian-pear.png" alt="" loading="lazy"><span class="name">Fizzy Asian Pear</span><span class="price">R 0.00</span></li>
+        <li><img src="img/fizzy-tropical-fruit-punch.png" alt="" loading="lazy"><span class="name">Fizzy Tropical Fruit Punch</span><span class="price">R 0.00</span></li>
+      </ul>
+    </section>
+
+    <section class="column">
+      <h2>Cafe Menu<small>Book online</small></h2>
+
+      <h3>Online Booking</h3>
+      <ul>
+        <li><span>Order and Book Online</span><span class="price">R 0.00</span></li>
+        <li><span>Polaroid w/ maid, No Entry<small>Per person, does not include entry</small></span><span class="price">R 0.00</span></li>
+      </ul>
+
+      <h3>Set Meals</h3>
+      <ul>
+        <li><img src="img/set-1.png" alt="" loading="lazy"><span class="name">Set 1 Heart Full Omurice Combo (Vegetarian)<small>Includes omurice, cake &amp; drink</small></span><span class="price">R 450.00</span></li>
+        <li><img src="img/set-2.png" alt="" loading="lazy"><span class="name">Set 2 Magic Pink Curry Banquet (Vegetarian)<small>Includes curry, cake &amp; drink</small></span><span class="price">R 450.00</span></li>
+        <li><img src="img/set-3.png" alt="" loading="lazy"><span class="name">Set 3 Omurice with complimentary drink of choice</span><span class="price">R 380.00</span></li>
+        <li><img src="img/set-4.png" alt="" loading="lazy"><span class="name">Set 4 Maid's Magic Pink Curry (Vegetarian)</span><span class="price">R 380.00</span></li>
+        <li><img src="img/set-5.png" alt="" loading="lazy"><span class="name">Set 5 Spongy Monster Sweet Treat (Vegetarian)</span><span class="price">R 300.00</span></li>
+        <li><img src="img/set-6.png" alt="" loading="lazy"><span class="name">Set 6 Maids Vegan Pink Curry</span><span class="price">R 380.00</span></li>
+      </ul>
+
+      <h3>Complimentary Drink</h3>
+      <ul>
+        <li><img src="img/blue-lemonade.png" alt="" loading="lazy"><span class="name">Blue Lemonade<small>Vegan friendly</small></span><span class="price">R 0.00</span></li>
+        <li><img src="img/peach-ice-tea.png" alt="" loading="lazy"><span class="name">Peach Ice Tea<small>Vegan friendly</small></span><span class="price">R 0.00</span></li>
+        <li><img src="img/watermelonade.png" alt="" loading="lazy"><span class="name">Watermelonade<small>Vegan friendly</small></span><span class="price">R 0.00</span></li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

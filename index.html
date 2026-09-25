@@ -35,6 +35,7 @@
 </style>
 </head>
 <body>
+  <button id="fs-btn">Go Full Screen</button>
   <h1>♡ Moe Moe Maid Cafe ♡</h1>
   <div class="hero">
     <a href="https://instagram.com/moemoecafekyun"><img src="img/moemoecafekyun_qr.png" alt="QR code for @moemoecafekyun on Instagram"></a>
@@ -92,5 +93,15 @@
       </ul>
     </section>
   </div>
+<script>
+  const elem = document.documentElement;
+  document.getElementById('fs-btn').addEventListener('click', () => {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari/Old Chrome */
+      elem.webkitRequestFullscreen();
+    }
+  });
+</script>
 </body>
 </html>

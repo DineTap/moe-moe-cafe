@@ -23,13 +23,14 @@
   ul { list-style: none; padding: 0; }
   li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.4rem 0; border-bottom: 1px solid #fcc2d7; }
   small { display: block; color: #868e96; font-weight: normal; }
-  .hero { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .hero { display: flex; justify-content: center; align-items: center; gap: 1rem; }
   .hero > * { flex: 0 1 135px; min-width: 0; }
   .hero > .logo { flex-basis: 180px; }
   .hero img { display: block; width: 100%; height: auto; }
-  .promo { display: flex; align-items: center; justify-content: center; gap: 1rem; padding-top: 1rem; }
-  .promo img { width: 260px; max-width: 100%; border-radius: 8px; }
-  .promo figure { margin: 0; text-align: center; font-weight: bold; color: #e67700; }
+  .promo { display: flex; align-items: flex-start; justify-content: center; gap: 1rem; padding-top: 1rem; }
+  .promo img { width: 260px; max-width: 100%; border-radius: 8px; box-sizing: border-box; }
+  .promo img.qr-pad { padding: 4.5%; background: #edf2f7; }
+  .promo figure { margin: 0; text-align: center; font-weight: bold; color: #e67700; flex: 1; min-width: 0; }
   li img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; flex: none; }
   li img.card-thumb { width: auto; height: 110px; max-width: 70px; object-fit: contain; }
   li .name { flex: 1; }
@@ -41,9 +42,9 @@
   <button id="fs-btn">Go Full Screen</button>
   <h1>♡ Moe Moe Maid Cafe ♡</h1>
   <div class="hero">
-    <a href="https://instagram.com/moemoecafekyun"><img src="img/moemoecafekyun_qr.png" alt="QR code for @moemoecafekyun on Instagram"></a>
+    <!-- <a href="https://instagram.com/moemoecafekyun"><img src="img/moemoecafekyun_qr.png" alt="QR code for @moemoecafekyun on Instagram"></a> -->
     <img class="logo" src="img/logo.png" alt="Moe Moe Cafe – Maid Cafe logo">
-    <a href="https://instagram.com/dynetap"><img src="img/dynetap_qr.png" alt="QR code for @dynetap on Instagram"></a>
+    <!-- <a href="https://instagram.com/dynetap"><img src="img/dynetap_qr.png" alt="QR code for @dynetap on Instagram"></a> -->
   </div>
   <p class="info">Comic Con Hall 5 Mezzanine</p>
   <h2 class="tagline">Experience Japanese Maid Cafe</h2>
@@ -56,22 +57,25 @@
           <img src="img/book-online-qr.png" alt="QR code to order and book online">
           <figcaption>Scan to book online</figcaption>
         </figure>
+        <figure>
+          <img class="qr-pad" src="img/tmm-instagram-qr.jpeg" alt="QR code for Tech My Money on Instagram">
+          <figcaption>Follow Tech My Money on Instagram<br>&amp; show us to order Roru Keki</figcaption>
+        </figure>
       </div>
-      <h2>Master Kang Entry Set<small>Offline ordering only</small></h2>
+      <h2>TMM Roru Keki Entry Set<small>Offline only · Follow TMM on Instagram &amp; show staff to order</small></h2>
 
-      <h3>Master Kang Entry Set</h3>
+      <h3>TMM Roru Keki Entry Set</h3>
       <ul>
-        <li><img src="img/beef-noodle-soup.png" alt="" loading="lazy"><span class="name">Beef Noodle Soup</span><span class="price">R 200.00</span></li>
-        <li><img src="img/seafood-noodle-soup.png" alt="" loading="lazy"><span class="name">Seafood Noodle Soup</span><span class="price">R 200.00</span></li>
+        <li><img src="img/beef-noodle-soup.jpg" alt="" loading="lazy"><span class="name">TMM Roru Keki</span><span class="price">R 200.00</span></li>
       </ul>
 
-      <h3>Master Kang Set Complimentary Drink</h3>
+      <h3>TMM Roru Keki Set Complimentary Drink</h3>
       <ul>
         <li><img src="img/fizzy-asian-pear.png" alt="" loading="lazy"><span class="name">Fizzy Asian Pear<small>Vegan friendly</small></span></li>
         <li><img src="img/fizzy-tropical-fruit-punch.png" alt="" loading="lazy"><span class="name">Fizzy Tropical Fruit Punch<small>Vegan friendly</small></span></li>
       </ul>
 
-      <h3>Master Kang Set Complimentary Card</h3>
+      <h3>Complimentary Card</h3>
       <ul>
         <li><img class="card-thumb" src="img/card.jpg" alt="Sanrio Card Pack" loading="lazy"><span class="name">Sanrio Characters Card</span></li>
         <li><img class="card-thumb" src="img/card-member-front.jpg" alt="Member card" loading="lazy"><span class="name">Member Card<small>Your Key to Our Maid Cafe! Please guard it well for a special treat next year! </small></span></li>

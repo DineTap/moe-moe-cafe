@@ -9,7 +9,11 @@
 <style>
   :root { --pink: #c2185b; --pink-soft: #fce4ec; --orange: #e0701a; --orange-rule: #f3c28f; --ink: #2a2a2a; --muted: #6b6b6b; --rule: #f2b8cc; --row: #f4e1e8; }
   * { box-sizing: border-box; }
-  body { font-family: "Poppins", "Segoe UI", Arial, sans-serif; background: #fff0f6; color: var(--ink); line-height: 1.35; max-width: 1100px; margin: 0 auto; padding: 1rem; }
+  body { font-family: "Poppins", "Segoe UI", Arial, sans-serif; background: #fff0f6; color: var(--ink); line-height: 1.35; max-width: 1100px; margin: 0 auto; padding: 1rem; position: relative; }
+  .next { position: absolute; top: 1rem; right: 1rem; background: #fff; border: 2px solid var(--pink); border-radius: 12px; padding: 0.4rem 0.8rem; text-align: center; line-height: 1.2; }
+  .next small { display: block; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .next b { display: block; color: var(--pink); font-size: 1.5rem; }
+  @media (max-width: 600px) { .next { position: static; margin: 0.75rem auto 0; max-width: 260px; } }
   #fs-btn { font: inherit; font-size: 0.8rem; color: var(--muted); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 0.25rem 0.75rem; cursor: pointer; }
   :fullscreen #fs-btn { display: none; }
 
@@ -19,6 +23,7 @@
   .loc { color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; margin-top: 0.25rem; }
   .tag { color: var(--pink); font-weight: 500; font-size: 1.25rem; }
   .incl { background: #d6336c; color: #fff; border-radius: 12px; padding: 1rem 1.25rem; text-align: center; font-weight: 700; font-size: 1.6rem; line-height: 1.3; margin: 1rem 0; }
+  .incl small { display: block; font-size: 1.1rem; margin-top: 0.3rem; }
 
   .columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 1.5rem; align-items: start; }
   .panel { background: #fff; border-radius: 16px; padding: 1.25rem; }
@@ -87,6 +92,7 @@
 </head>
 <body>
   <button id="fs-btn">Go Full Screen</button>
+  <div class="next" aria-live="polite"><small>Next session starts at</small><b id="next-time">--:--</b><small>Sessions every 30 min</small></div>
 
   <header class="brand">
     <img src="img/logo.png" alt="Moe Moe Cafe – Maid Cafe logo">
@@ -94,7 +100,7 @@
     <div class="loc">Comic Con · Hall 5 Mezzanine</div>
     <div class="tag">Experience a Japanese Maid Cafe</div>
   </header>
-  <div class="incl">Food cost includes one complimentary drink, entertainment and entry for 50 minutes.</div>
+  <div class="incl">Food cost includes one complimentary drink, entertainment and entry for 50 minutes.<small>Bookings preferred</small></div>
 
   <div class="columns">
     <section class="panel">
@@ -186,6 +192,17 @@
       elem.webkitRequestFullscreen();
     }
   });
+
+  // Sessions start every 30 minutes on the hour and half hour
+  function updateNextSession() {
+    const next = new Date();
+    next.setSeconds(0, 0);
+    next.setMinutes(next.getMinutes() < 30 ? 30 : 60);
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('next-time').textContent = pad(next.getHours()) + ':' + pad(next.getMinutes());
+  }
+  updateNextSession();
+  setInterval(updateNextSession, 10000);
 </script>
 </body>
 </html>
